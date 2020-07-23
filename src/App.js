@@ -9,7 +9,6 @@ function App() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(user.firstName, user.lastName)
   };
 
   const onChange = (e) => {
