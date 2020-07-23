@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+
+  const [user, setUser] = useState({
+    firstName: '',
+    lastName: '',
+  })
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(user.firstName, user.lastName)
+  };
+
+  const onChange = (e) => {
+    e.preventDefault();
+    const name = e.target.name;
+    const value = e.target.value;
+    setUser(user => ({ ...user, [name]: value }))
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello, {user.firstName} {user.lastName}</h1>
+      <form onSubmit={onSubmit}>
+        <input type="text" name="firstName" placeholder="Enter First Name" onChange={onChange} value={user.firstName} /> <br />
+        <input type="text" name="lastName" placeholder="Enter Last Name" onChange={onChange} value={user.lastName} /> <br />
+        <input type={"submit"} value={"Save"} />
+      </form>
     </div>
   );
 }
