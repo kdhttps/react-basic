@@ -8,3 +8,7 @@
     color: ivory;
     margin-top: 5px;
 }
+.people:hover {
+    background: lightcoral;
+    cursor: pointer;
+}

@@ -1,11 +1,11 @@
 import React from 'react';
-import PeopleDetails from './people/PeopleDetails'
+import PeopleManage from './people/PeopleManage'
 
 function App() {
   return (
     <div className="App">
       <h1>Playground</h1>
-      <PeopleDetails />
+      <PeopleManage />
     </div>
   );
 }
