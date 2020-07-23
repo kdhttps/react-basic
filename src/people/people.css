@@ -1,0 +1,10 @@
+.people-container {
+    width: 70%;
+    margin: auto;
+}
+.people {
+    padding: 3px;
+    background: rgb(255, 141, 34);
+    color: ivory;
+    margin-top: 5px;
+}
