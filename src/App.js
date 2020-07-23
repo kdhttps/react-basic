@@ -1,11 +1,11 @@
 import React from 'react';
-import PeopleManage from './people/PeopleManage'
+import PeopleContextProvider from './contexts/PeopleContextProvider'
 
 function App() {
   return (
     <div className="App">
       <h1>Playground</h1>
-      <PeopleManage />
+      <PeopleContextProvider />
     </div>
   );
 }

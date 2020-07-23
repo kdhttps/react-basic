@@ -9,7 +9,7 @@ const PeopleReducer = (state, action) => {
                 age: action.people.age,
             }]
         case 'DELETE_PEOPLE':
-            return state.filter((p) => p.id != action.id)
+            return state.filter((p) => p.id !== action.id)
         default:
             return state;
     };
