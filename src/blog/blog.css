@@ -3,12 +3,13 @@
     margin: auto;
 }
 .people {
-    padding: 3px;
+    padding: 1px;
     background: rgb(255, 141, 34);
     color: ivory;
     margin-top: 5px;
 }
 .people:hover {
-    background: lightcoral;
+    background: red;
     cursor: pointer;
+    text-decoration: line-through;
 }
