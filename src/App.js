@@ -1,7 +1,7 @@
 import React from 'react';
 import BlogContextProvider from './contexts/BlogContextProvider'
 import { Switch, Route } from 'react-router-dom';
-import {MDBContainer} from 'mdbreact';
+import { MDBContainer } from 'mdbreact';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';

@@ -5,23 +5,36 @@ import { BlogContext } from '../contexts/BlogContextProvider';
 import { BlogActionConst } from '../utils/constant';
 
 const BlogForm = () => {
-    // const { dispatchBlogs } = useContext(BlogContext);
+    const { dispatchBlogs, config } = useContext(BlogContext);
 
     const [blog, setBlog] = useState({
         title: '',
         content: '',
     });
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        // dispatchBlogs({ type: BlogActionConst.ADD_BLOG, blog: { title: blog.title, content: blog.content } });
-        setBlog({ title: '', content: 0 })
-        e.target['title'].focus();
+        console.log(blog)
+        const res = await fetch(`${config.serverBaseURL}${config.blogEndpoint}`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(blog)
+        });
+
+        if (res.status === 200) {
+            dispatchBlogs({ type: BlogActionConst.ADD_BLOG, blog })
+        } else {
+            alert('failed');
+            return
+        }
     };
 
     const onChange = (e) => {
         const target = e.target;
-        setBlog({ ...blog, [target.title]: target.value })
+        setBlog({ ...blog, [target.name]: target.value })
     };
 
     return (

@@ -7,11 +7,12 @@ import BlogForm from '../blog/BlogForm';
 import BlogReducer from '../reducers/BlogReducer';
 import { fetchStatus, BlogActionConst } from '../utils/constant';
 import '../blog/blog.css';
+import config from '../config/index';
 
 export const BlogContext = createContext();
 
 const fetchBlogs = async () => {
-    const res = await fetch("http://localhost:4040/todo");
+    const res = await fetch(`${config.serverBaseURL}${config.blogEndpoint}`);
     return res.json();
 };
 
@@ -24,14 +25,14 @@ const BlogContextProvider = (children) => {
         if (status === fetchStatus.SUCCESS) {
             dispatchBlogs({ type: BlogActionConst.INIT_BLOGS, blogs: data });
         }
-    }, [data]);
+    }, [data, status]);
 
     return (
         <>
             {status === fetchStatus.LOADING ? 'Loading...' : null}
             {status === fetchStatus.ERROR ? 'Error fetching data' : null}
             {status === fetchStatus.SUCCESS ?
-                (<BlogContext.Provider value={{ blogs, dispatchBlogs }}>
+                (<BlogContext.Provider value={{ blogs, dispatchBlogs, config }}>
                     <hr />
                     <MDBRow>
                         <BlogList />

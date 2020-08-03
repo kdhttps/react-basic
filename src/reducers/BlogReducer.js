@@ -1,4 +1,3 @@
-import {v1 as uuid} from 'uuid';
 import { BlogActionConst } from '../utils/constant';
 
 const BlogReducer = (state, action) => {
@@ -7,9 +6,8 @@ const BlogReducer = (state, action) => {
             return [...action.blogs];
         case BlogActionConst.ADD_BLOG:
             return [...state, {
-                id: uuid(),
-                name: action.blog.name,
-                age: action.blog.age,
+                title: action.blog.title,
+                content: action.blog.content,
             }];
         case BlogActionConst.DELETE_BLOG:
             return state.filter((p) => p._id !== action._id);
