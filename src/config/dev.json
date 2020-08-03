@@ -1,0 +1,4 @@
+{
+    "serverBaseURL": "http://localhost:4040",
+    "blogEndpoint": "/blog"
+}
